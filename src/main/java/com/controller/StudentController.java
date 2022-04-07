@@ -40,4 +40,9 @@ public class StudentController {
     public void update(@RequestParam("studentId") String studentId,@RequestBody Student student){
         studentservice.update(student,studentId);
     }
+
+    @PatchMapping("/alter")
+    public void alter(@RequestParam("studentId") String studentId,@RequestBody Student student){
+        studentservice.alter(studentId,student);
+    }
 }
