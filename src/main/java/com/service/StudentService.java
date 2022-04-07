@@ -1,10 +1,12 @@
 package com.service;
 
 import com.model.Student;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class StudentService {
 
     List list = new ArrayList<Student>();
@@ -18,12 +20,10 @@ public class StudentService {
     }
 
     public List<Student> get(String stuId) {
-
         List list1 = new ArrayList<Student>();
         for (int i = 0; i < list.size(); i++) {
             Student student = (Student) list.get(i);
             String string = student.getStudentId();
-
             if (stuId.equals(string)) {
                 list1.add(student);
             }
@@ -35,12 +35,20 @@ public class StudentService {
         for (int i = 0; i < list.size(); i++) {
             Student student = (Student) list.get(i);
             String string = student.getStudentId();
-
             if (studentId.equals(string)) {
                 list.remove(student);
             }
         }
     }
 
-
+    public void update(Student student,String studentId){
+        for (int i = 0; i < list.size(); i++) {
+            Student newStudent = (Student) list.get(i);
+            String string = newStudent.getStudentId();
+            if (studentId.equals(string)) {
+                list.remove(newStudent);
+                list.add(student);
+            }
+        }
+    }
 }
