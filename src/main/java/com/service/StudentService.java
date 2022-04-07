@@ -41,13 +41,13 @@ public class StudentService {
         }
     }
 
-    public void update(Student student,String studentId){
+    public void update(Student newStudent,String studentId){
         for (int i = 0; i < list.size(); i++) {
-            Student newStudent = (Student) list.get(i);
-            String string = newStudent.getStudentId();
+            Student oldStudent = (Student) list.get(i);
+            String string = oldStudent.getStudentId();
             if (studentId.equals(string)) {
-                list.remove(newStudent);
-                list.add(student);
+                list.remove(oldStudent);
+                list.add(newStudent);
             }
         }
     }
